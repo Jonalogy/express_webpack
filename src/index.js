@@ -1,12 +1,18 @@
 import express from "express";
 import { healthCheckRouter } from "./router/healthCheck"
 
-const app = express();
 const port = process.env.PORT || 8080;
 
-app.use("/healthcheck", healthCheckRouter)
+function buildServer() {
+  const server = express();
 
+  server.use("/healthcheck", healthCheckRouter)
 
-app.listen(port, () => {
-  console.log(`Server is running on port: ${port}`);
-}); 
+  return server
+}
+
+if (process.env.NODE_ENV !== "test") {
+  buildServer().listen(port, () =>
+    console.log(`Server is running on port: ${port}`)
+  );
+} else { module.exports = buildServer() }
