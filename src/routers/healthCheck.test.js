@@ -1,5 +1,5 @@
 import request from "supertest"
-import App from "../index"
+import App from "@Src"
 
 describe("HealthCheck", () => {
   it("should respond that server is alive", async () => {

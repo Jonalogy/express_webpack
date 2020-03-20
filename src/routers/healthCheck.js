@@ -1,4 +1,4 @@
-import { setUpRouterFor } from "./utils"
+import { setUpRouterFor } from "@Routers/utils"
 import superagent from "superagent"
 
 const healthCheckDomain = router => {

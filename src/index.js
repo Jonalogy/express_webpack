@@ -1,9 +1,10 @@
 import express from "express";
-import { healthCheckRouter } from "./router/healthCheck"
+import { healthCheckRouter } from "@Routers/healthCheck"
 
 const port = process.env.PORT || 8080;
 
 function buildServer() {
+  console.log(`> Building server for ${process.env.NODE_ENV} environment`)
   const server = express();
 
   server.use("/healthcheck", healthCheckRouter)

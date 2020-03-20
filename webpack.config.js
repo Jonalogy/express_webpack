@@ -8,6 +8,12 @@ const config = {
     filename: 'server.js',
     path: path.resolve(__dirname, 'dist'),
   },
+  resolve: {
+    alias: {
+      "@Routers": path.resolve(__dirname, 'src/routers'),
+      "@Src": path.resolve(__dirname, "src"),
+    }
+  },
   module: {
     rules: [
       {
@@ -22,12 +28,16 @@ const config = {
       }
     ]
   },
-  plugins: [new webpack.DefinePlugin({
-    "global.GENTLY": false
-  })],
+  plugins: [
+    new webpack.DefinePlugin({
+      "global.GENTLY": false
+    })
+  ],
 }
 
 module.exports = function (env, argv) {
+  console.log("@env: ", env)
+  console.log("@argv: ", argv.mode)
   if (argv.mode === 'development') {
     config.devtool = 'source-map';
   }

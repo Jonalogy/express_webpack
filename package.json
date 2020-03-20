@@ -12,11 +12,6 @@
     "start:dev": "node ./dist/server.js",
     "test": "jest --detectOpenHandles"
   },
-  "jest": {
-    "transform": {
-      "^.+\\.jsx?$": "babel-jest"
-    }
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
