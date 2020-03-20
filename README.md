@@ -3,9 +3,12 @@
 
 ## Configuration Notes
 
-### Babel For Jest
+### Babel
 - [@babel/plugin-transform-runtime](https://babeljs.io/docs/en/babel-plugin-transform-runtime#with-a-configuration-file-recommended) is used to resolve: 
 `ReferenceError: regeneratorRuntime is not defined`
+
+### Jest
+- Configuring aliases on webpack is only part of the job done. Test files will not get get bundled so you'll need to use Jest's `moduleNameMapper` to recognise the aliases as well. See this [article](https://alexjover.com/blog/enhance-jest-configuration-with-module-aliases/) to learn how to do so.
 
 ### Webpack Config
 
