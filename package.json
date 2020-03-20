@@ -8,17 +8,29 @@
     "build:prod": "webpack --mode=production",
     "prebuild:dev": "rm -rf ./dist",
     "build:dev": "webpack --mode=development",
+    "prestart:dev": "npm run build:dev",
     "start:dev": "node ./dist/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --detectOpenHandles"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    }
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "lodash": "^4.17.15"
+    "lodash": "^4.17.15",
+    "superagent": "^5.2.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.8.7",
+    "@babel/plugin-transform-runtime": "^7.8.3",
+    "@babel/preset-env": "^7.8.7",
+    "babel-jest": "^25.1.0",
+    "babel-loader": "^8.0.6",
     "eslint": "^6.8.0",
     "jest": "^25.1.0",
     "supertest": "^4.0.2",
